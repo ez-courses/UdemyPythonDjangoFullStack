@@ -12,7 +12,7 @@ function clearBoard() {
   }
 
 }
-restart.addEventListener('click',clearBoard)
+restart.addEventListener('click',clearBoard);
 
 
 
@@ -27,7 +27,7 @@ function changeMarker(){
     }else {
       this.textContent = '';
     }
-};
+}
 
 // Use a for loop to add Event listeners to all the squares
 for (var i = 0; i < squares.length; i++) {
