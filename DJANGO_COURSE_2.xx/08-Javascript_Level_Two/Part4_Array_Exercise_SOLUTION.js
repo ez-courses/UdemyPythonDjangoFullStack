@@ -48,8 +48,10 @@ if (start === "y") {
       addNew();
     }else if (request === "display") {
       display();
-    }else if (request == "remove") {
+    }else if (request === "remove") {
       remove();
+    } else {
+      alert("Not recognised!");
     }
   }
 }
