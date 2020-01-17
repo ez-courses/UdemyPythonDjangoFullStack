@@ -41,16 +41,16 @@ listItems.eq(-1).css('background','red');
 /////////////////////
 
 // Grabbing Text:
-$('h1').text()
+$('h1').text();
 
 // Changing Text:
-$('h1').text("Brand New Text!")
+$('h1').text("Brand New Text!");
 
 // Grabbing HTML
-$('h1').html()
+$('h1').html();
 
 // Changing HTML
-$('h1').html("<em>Now in Italics</em>")
+$('h1').html("<em>Now in Italics</em>");
 
 ////////////////////////////
 // ATTRIBUTES and VALUES //
