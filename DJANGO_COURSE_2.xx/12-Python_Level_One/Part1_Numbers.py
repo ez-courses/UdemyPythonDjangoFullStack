@@ -6,10 +6,10 @@
 #
 # We'll learn about the following topics:
 #
-#     1.) Types of Numbers in Python
-#     2.) Basic Arithmetic
-#     3.) Differences between Python 2 vs 3 in division
-#     4.) Object Assignment in Python
+#     1.) Types of Numbers in Python.
+#     2.) Basic Arithmetic.
+#     3.) Differences between Python 2 vs 3 in division.
+#     4.) Object Assignment in Python.
 
 # Types of numbers
 #

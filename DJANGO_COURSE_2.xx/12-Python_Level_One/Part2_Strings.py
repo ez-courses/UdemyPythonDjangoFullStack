@@ -36,7 +36,7 @@
 
 
 # Be careful with quotes!
-' I'm using single quotes, but will create an error'
+"I'm using single quotes, but will create an error"
 
 
 # The reason for the error above is because the single quote in I'm stopped the
