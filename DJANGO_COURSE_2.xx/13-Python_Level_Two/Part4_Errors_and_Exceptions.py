@@ -5,7 +5,7 @@
 # In this lecture we will learn about Errors and Exception Handling in Python.
 # You've definitely already encountered errors by this point in the course.
 # For example:
-print('Hello
+print('Hello)
 
 
 # Note how we get a SyntaxError, with the further description that it was an EOL

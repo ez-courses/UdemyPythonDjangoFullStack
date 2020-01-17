@@ -168,8 +168,8 @@ def hello():
     return 'Hi Jose!'
 
 def other(func):
-    print 'Other code would go here'
-    print func()
+    print('Other code would go here')
+    print(func())
 
 other(hello)
 
@@ -187,16 +187,16 @@ other(hello)
 def new_decorator(func):
 
     def wrap_func():
-        print "Code would be here, before executing the func"
+        print("Code would be here, before executing the func")
 
         func()
 
-        print "Code here will execute after the func()"
+        print("Code here will execute after the func()")
 
     return wrap_func
 
 def func_needs_decorator():
-    print "This function is in need of a Decorator"
+    print("This function is in need of a Decorator")
 
 func_needs_decorator()
 
@@ -212,7 +212,7 @@ func_needs_decorator()
 
 @new_decorator
 def func_needs_decorator():
-    print "This function is in need of a Decorator"
+    print("This function is in need of a Decorator")
 
 func_needs_decorator()
 

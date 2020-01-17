@@ -40,10 +40,10 @@ l.count(2)
 # use type() to check the type of object something is:
 
 
-print type(1)
-print type([])
-print type(())
-print type({})
+print(type(1))
+print(type([]))
+print(type(()))
+print(type({}))
 
 
 # So we know all these things are objects, so how can we create our own Object
@@ -70,7 +70,7 @@ class Sample():
 # Instance of Sample
 x = Sample()
 
-print type(x)
+print(type(x))
 
 
 # By convention we give classes a name that starts with a capital letter.
@@ -198,8 +198,8 @@ class Circle():
 c = Circle()
 
 c.setRadius(2)
-print 'Radius is: ',c.getRadius()
-print 'Area is: ',c.area()
+print('Radius is: ',c.getRadius())
+print('Area is: ',c.area())
 
 
 # Great! Notice how we used self. notation to reference attributes of the class
@@ -219,27 +219,27 @@ print 'Area is: ',c.area()
 # Lets see an example by incorporating our previous work on the Dog class:
 
 
-class Animal():
+class Animal(object):
     def __init__(self):
-        print "Animal created"
+        print("Animal created")
 
     def whoAmI(self):
-        print "Animal"
+        print("Animal")
 
     def eat(self):
-        print "Eating"
+        print("Eating")
 
 
 class Dog(Animal):
     def __init__(self):
         Animal.__init__(self)
-        print "Dog created"
+        print("Dog created")
 
     def whoAmI(self):
-        print "Dog"
+        print("Dog")
 
     def bark(self):
-        print "Woof!"
+        print("Woof!")
 
 d = Dog()
 d.whoAmI()
@@ -274,7 +274,7 @@ d.bark()
 
 class Book():
     def __init__(self, title, author, pages):
-        print "A book is created"
+        print("A book is created")
         self.title = title
         self.author = author
         self.pages = pages
@@ -286,13 +286,13 @@ class Book():
         return self.pages
 
     def __del__(self):
-        print "A book is destroyed"
+        print("A book is destroyed")
 
 book = Book("Python Rocks!", "Jose Portilla", 159)
 
 #Special Methods
-print book
-print len(book)
+print(book)
+print(len(book))
 del book
 
 
