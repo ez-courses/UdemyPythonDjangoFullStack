@@ -20,7 +20,6 @@ def add_topic():
     return t
 
 
-
 def populate(N=5):
     '''
     Create N Entries of Dates Accessed
