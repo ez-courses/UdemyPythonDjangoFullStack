@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import UserForm,UserProfileInfoForm
+from .forms import UserForm, UserProfileInfoForm
 
 # Extra Imports for the Login and Logout Capabilities
 from django.contrib.auth import authenticate, login, logout
@@ -7,9 +7,12 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
+
 # Create your views here.
+@login_required
 def index(request):
-    return render(request,'basic_app/index.html')
+    return render(request, 'basic_app/index.html')
+
 
 @login_required
 def special(request):
@@ -17,12 +20,14 @@ def special(request):
     # LOGIN_URL = '/basic_app/user_login/'
     return HttpResponse("You are logged in. Nice!")
 
+
 @login_required
 def user_logout(request):
     # Log out the user.
     logout(request)
     # Return to homepage.
     return HttpResponseRedirect(reverse('index'))
+
 
 def register(request):
 
@@ -70,7 +75,7 @@ def register(request):
 
         else:
             # One of the forms was invalid if this else gets called.
-            print(user_form.errors,profile_form.errors)
+            print(user_form.errors, profile_form.errors)
 
     else:
         # Was not an HTTP post so we just render the forms as blank.
@@ -79,10 +84,16 @@ def register(request):
 
     # This is the render and context dictionary to feed
     # back to the registration.html file page.
-    return render(request,'basic_app/registration.html',
-                          {'user_form':user_form,
-                           'profile_form':profile_form,
-                           'registered':registered})
+    return render(
+        request,
+        'basic_app/registration.html',
+        {
+            'user_form': user_form,
+            'profile_form': profile_form,
+            'registered': registered
+        }
+    )
+
 
 def user_login(request):
 
@@ -99,16 +110,17 @@ def user_login(request):
             #Check it the account is active
             if user.is_active:
                 # Log the user in.
-                login(request,user)
+                login(request, user)
                 # Send the user back to some page.
                 # In this case their homepage.
+                # return HttpResponseRedirect(reverse('special'))
                 return HttpResponseRedirect(reverse('index'))
             else:
                 # If account is not active:
                 return HttpResponse("Your account is not active.")
         else:
             print("Someone tried to login and failed.")
-            print("They used username: {} and password: {}".format(username,password))
+            print("They used username: {} and password: {}".format(username, password))
             return HttpResponse("Invalid login details supplied.")
 
     else:
