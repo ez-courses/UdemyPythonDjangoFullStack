@@ -20,9 +20,11 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="navbar-nav">
-        <a class="navbar-brand" href="{% url 'basic_app:list' %}">Schools</a>
+        <a class="navbar-brand" href="{% url 'basic_app:schools_list' %}">Schools</a>
+        <a class="navbar-brand" href="{% url 'basic_app:students_list' %}">Students</a>
         <a class="nav-item nav-link" href="{% url 'admin:index' %}">Admin</a>
-        <a class="nav-item nav-link" href="{% url 'basic_app:create' %}">Create School</a>
+        <a class="nav-item nav-link" href="{% url 'basic_app:create_school' %}">Create School</a>
+        <a class="nav-item nav-link" href="{% url 'basic_app:create_student' %}">Create Student</a>
       </div>
     </nav>
 

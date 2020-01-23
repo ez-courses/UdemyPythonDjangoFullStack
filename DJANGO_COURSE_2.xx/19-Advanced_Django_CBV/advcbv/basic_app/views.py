@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.http import HttpResponse
-from django.views.generic import (View,TemplateView,
-                                ListView,DetailView,
-                                CreateView,DeleteView,
-                                UpdateView)
+from django.views.generic import (
+    View, TemplateView, ListView, DetailView, CreateView, DeleteView, UpdateView
+)
 from . import models
 # Create your views here.
 
@@ -15,16 +14,50 @@ from . import models
 #
 #
 
+
 # Pretty simple right?
 class IndexView(TemplateView):
     # Just set this Class Object Attribute to the template page.
     # template_name = 'app_name/site.html'
     template_name = 'index.html'
 
-    def get_context_data(self,**kwargs):
-        context  = super().get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         context['injectme'] = "Basic Injection!"
         return context
+
+
+class StudentListView(ListView):
+    # If you don't pass in this attribute,
+    # Django will auto create a context name
+    # for you with object_list!
+    # Default would be 'school_list'
+
+    # Example of making your own:
+    # context_object_name = 'schools'
+    model = models.Student
+
+
+class StudentDetailView(DetailView):
+    context_object_name = 'student_details'
+    model = models.Student
+    template_name = 'basic_app/student_detail.html'
+
+
+class StudentCreateView(CreateView):
+    fields = ("name", "age", "school")
+    model = models.Student
+
+
+class StudentUpdateView(UpdateView):
+    fields = ("name", "age", "school")
+    model = models.Student
+
+
+class StudentDeleteView(DeleteView):
+    model = models.Student
+    success_url = reverse_lazy("basic_app:students_list")
+
 
 class SchoolListView(ListView):
     # If you don't pass in this attribute,
@@ -44,19 +77,20 @@ class SchoolDetailView(DetailView):
 
 
 class SchoolCreateView(CreateView):
-    fields = ("name","principal","location")
+    fields = ("name", "principal", "location")
     model = models.School
 
 
 class SchoolUpdateView(UpdateView):
-    fields = ("name","principal")
+    fields = ("name", "principal")
     model = models.School
+
 
 class SchoolDeleteView(DeleteView):
     model = models.School
-    success_url = reverse_lazy("basic_app:list")
+    success_url = reverse_lazy("basic_app:schools_list")
 
 
 class CBView(View):
-    def get(self,request):
+    def get(self, request):
         return HttpResponse('Class Based Views are Cool!')
