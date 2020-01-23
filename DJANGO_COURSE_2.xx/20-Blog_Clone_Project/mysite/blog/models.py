@@ -6,9 +6,10 @@ from django.urls import reverse
 # Email: training@pieriandata.com
 # Password: testpassword
 
+
 # Create your models here.
 class Post(models.Model):
-    author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
@@ -19,18 +20,19 @@ class Post(models.Model):
         self.save()
 
     def approve_comments(self):
+        # only returns approved comments
         return self.comments.filter(approved_comment=True)
 
     def get_absolute_url(self):
-        return reverse("post_detail",kwargs={'pk':self.pk})
+        return reverse("post_detail", kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.title
 
 
 class Comment(models.Model):
-    post = models.ForeignKey('blog.Post', related_name='comments',on_delete=models.CASCADE)
-    author = models.CharField(max_length=200)
+    post = models.ForeignKey('blog.Post', related_name='comments', on_delete=models.CASCADE)
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)

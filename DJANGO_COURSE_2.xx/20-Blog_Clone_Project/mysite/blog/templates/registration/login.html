@@ -11,8 +11,8 @@
     {% endif %}
 
     <form method="POST" action="{% url 'login' %}">
-    {% csrf_token %}
-        {{form.as_p}}
+        {% csrf_token %}
+        {{ form.as_p }}
 
         <input type="submit" class='btn btn-primary' value="Login" />
         <input type="hidden" name="next" value="{{ next }}" />
