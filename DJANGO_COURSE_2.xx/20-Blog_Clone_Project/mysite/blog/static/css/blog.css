@@ -14,6 +14,13 @@
   text-align: center;
 }
 
+.postauthor{
+  font-family: 'Russo One', sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+
 .postcontent{
   font-family: 'Montserrat';
   font-size: 1.5em;

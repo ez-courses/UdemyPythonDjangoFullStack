@@ -18,9 +18,9 @@ from django.urls import path, include
 from basic_app import views
 
 urlpatterns = [
-    path('',views.IndexView.as_view()),
-    path('admin/',admin.site.urls,name='admin'),
-    path('basic_app/',include('basic_app.urls',namespace='basic_app')),
-    # path('',views.CBView.as_view()),
-    # path('',views.index)
+    path('', views.IndexView.as_view()),
+    path('admin/', admin.site.urls, name='admin'),
+    path('basic_app/', include('basic_app.urls', namespace='basic_app')),
+    path('', views.CBView.as_view()),
+    # path('', views.index)
 ]
